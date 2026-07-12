@@ -1,0 +1,111 @@
+specification: API Commons Plans
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/Plans
+provider: Konfig
+providerId: konfig-api
+created: '2026-07-11'
+modified: '2026-07-11'
+reconciled: false
+tags:
+- SDK Generation
+- Client Library
+- API Documentation
+- Developer Tools
+- API Lifecycle
+- Plans
+description: >-
+  Konfig's commercial model, while it operated, was a subscription priced by the
+  number of SDKs a publisher generated and kept updated, rather than a public
+  per-call API price. Konfig distributed access to the generated SDKs and
+  notified customers whenever a source API changed, positioning the fee against
+  the engineering cost of hand-maintaining client libraries. Exact list prices
+  and tier names were not published on the site and were handled through
+  sales/demo conversations. Konfig was sunset in December 2024 and its full
+  codebase was open-sourced under the MIT license, so the only currently
+  available option is to self-host the open-source generator at no license cost.
+notes: >-
+  Prices below are modeled/unconfirmed - Konfig did not publish a public pricing
+  page with numeric tiers. There is no active paid offering as of 2026-07-11
+  because the company was sunset in December 2024; the open-source, self-hosted
+  path is the live option. Verify against the archived site or the founders if
+  reconciling.
+sources:
+- https://konfigthis.com/
+- https://konfigthis.com/blog/roi/
+- https://github.com/konfig-dev/konfig
+- https://dylanhuang.com/blog/closing-my-startup/
+plans:
+- id: konfig-open-source
+  name: Open Source (Self-Hosted)
+  type: free
+  description: >-
+    Since December 2024 the entire Konfig platform - CLI, generator backend,
+    docs generator, and SDK templates - is open source under the MIT license and
+    self-hostable from github.com/konfig-dev/konfig. No license fee; the only
+    cost is your own infrastructure and maintenance.
+  entries:
+  - label: Self-Hosted Generation
+    name: self_hosted_generation
+    type: usage
+    metric: sdks
+    limit: -1
+    timeFrame: month
+    geo: global
+    unit: 1
+    price: free (self-hosted; MIT license)
+    userMultiplied: false
+  elements:
+  - name: SDK Generation (all languages)
+  - name: Documentation Portal
+  - name: Demos and Tutorials
+  - name: OpenAPI Linting
+  - name: konfig-cli and konfig.yaml
+- id: konfig-subscription
+  name: Konfig Subscription (Historical)
+  type: subscription
+  description: >-
+    Historical managed subscription billed by the number of SDKs generated and
+    kept in sync, with automatic republishing on spec changes and update
+    notifications. No longer sold - Konfig was sunset in December 2024. Retained
+    here for reference; pricing was not publicly listed.
+  entries:
+  - label: Per-SDK Subscription
+    name: per_sdk_subscription
+    type: subscription
+    metric: sdks
+    limit: -1
+    timeFrame: month
+    geo: global
+    unit: 1
+    price: modeled - per-SDK monthly subscription (not publicly listed; discontinued)
+    userMultiplied: false
+  elements:
+  - name: Managed SDK Generation and Hosting
+  - name: Automatic Republish on Spec Change
+  - name: Update Notifications
+  - name: Package Registry Publishing
+- id: konfig-enterprise
+  name: Enterprise / Custom (Historical)
+  type: enterprise
+  description: >-
+    Historical custom arrangement for larger API publishers - more SDK
+    languages, private/enterprise hosting, and negotiated terms via a
+    sales/demo conversation. Discontinued with the December 2024 sunset.
+  entries:
+  - label: Enterprise Agreement
+    name: enterprise
+    type: flat
+    metric: contract
+    limit: -1
+    timeFrame: year
+    geo: global
+    unit: 1
+    price: contact sales (historical; discontinued)
+    userMultiplied: false
+  elements:
+  - name: Custom SDK Language Coverage
+  - name: Enterprise Support
+  - name: Negotiated Terms
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com

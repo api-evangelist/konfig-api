@@ -1,0 +1,92 @@
+specification: FinOps Framework
+specificationVersion: '1.0'
+schema: https://www.finops.org/framework/
+provider: Konfig
+providerId: konfig-api
+created: '2026-07-11'
+modified: '2026-07-11'
+reconciled: false
+tags:
+- SDK Generation
+- Client Library
+- Developer Tools
+- API Lifecycle
+- FinOps
+- Cost Management
+- FOCUS
+description: >-
+  FinOps view of Konfig spend. While Konfig operated, cost was a subscription
+  driven mainly by the number of client-library SDKs a publisher generated and
+  kept updated, weighed against the engineering cost of hand-maintaining those
+  SDKs (Konfig positioned this as roughly the cost of one to two full-time
+  engineers). Since Konfig was sunset in December 2024 and open-sourced under
+  MIT, the live cost model is self-hosted: your own compute for running the
+  generator plus the maintenance effort, with no vendor invoice. Downstream,
+  publishing generated SDKs incurs only the (typically free or low) costs of the
+  target package registries.
+notes: >-
+  Konfig per-unit subscription rates were not publicly listed and are not
+  reconciled here. There is no active vendor invoice as of 2026-07-11 because the
+  company was sunset; the dominant cost is now self-hosting the open-source
+  generator. Verify against archived pricing or the founders if reconciling.
+sources:
+- https://konfigthis.com/
+- https://konfigthis.com/blog/roi/
+- https://github.com/konfig-dev/konfig
+- https://focus.finops.org/focus-specification/v1-3/
+alignedWith:
+  framework: FinOps Foundation Framework
+  frameworkUrl: https://www.finops.org/framework/
+  dataSpec: FOCUS
+  dataSpecVersion: '1.3'
+  dataSpecUrl: https://focus.finops.org/focus-specification/v1-3/
+publisherName: Konfig
+serviceCategory: Developer Tools and SDK Generation
+billingModel:
+  pricingCategory: Subscription-Based
+  billingFrequency: Monthly
+  billingCurrency: USD
+  chargeCategories:
+  - Usage
+  - Purchase
+focusColumns:
+  ServiceName: Konfig SDK Generation
+  ServiceCategory: Developer Tools and SDK Generation
+  ProviderName: Konfig
+  PublisherName: Konfig
+  InvoiceIssuerName: Konfig
+  BillingCurrency: USD
+  ChargeCategory: Purchase
+  PricingCategory: Subscription-Based
+meters:
+- name: sdks_generated
+  description: Number of client-library SDKs generated and kept in sync; the primary historical subscription driver.
+  unit: sdks
+  aggregation: sum
+  dimensions:
+  - account
+  - language
+- name: self_hosted_compute
+  description: Infrastructure cost of running the self-hosted open-source Konfig generator (no Konfig invoice).
+  unit: hours
+  aggregation: sum
+  dimensions:
+  - deployment
+- name: registry_publishing
+  description: Costs charged by downstream package registries (npm, PyPI, Maven Central) for publishing SDKs.
+  unit: publishes
+  aggregation: sum
+  dimensions:
+  - registry
+principles:
+- name: Visibility
+  description: Track how many SDK languages and target registries you generate and publish per API; on self-hosted, monitor generator infrastructure cost.
+- name: Allocation
+  description: Attribute SDK generation to the owning API/product team so client-library maintenance maps to a cost center.
+- name: Optimization
+  description: Generate only the SDK languages your consumers actually use; self-host the open-source generator to remove vendor subscription fees when volume is high.
+- name: Accountability
+  description: Assign an owner per generated SDK set and review it against the engineering cost it replaces across the API lifecycle.
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com

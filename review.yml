@@ -1,0 +1,98 @@
+aid: konfig-api
+name: Konfig
+review:
+  question: Does Konfig expose a documented public WebSocket API?
+  answer: false
+  date: '2026-07-11'
+  reviewer: API Evangelist
+  asyncapiSpecCreated: false
+  asyncapiScopeNote: |
+    No AsyncAPI document was authored. Konfig has no public HTTP or WebSocket
+    API of its own to model. Konfig is a developer-tooling platform: the
+    konfig-cli reads a konfig.yaml file and calls Konfig's hosted generation
+    backend to produce SDKs, docs, demos, and tutorials from an OpenAPI
+    Specification or Postman Collection. That generator backend is an internal
+    service invoked by the CLI, not a documented, versioned public API - and it
+    is request/response only. There is no server-push transport (WebSocket or
+    SSE) anywhere in Konfig's surface to model.
+findings:
+  summary: |
+    Konfig does not publish a documented public WebSocket API - it does not
+    publish a documented public REST API either. Konfig is an SDK and API
+    documentation generator. Publishers interact with it through the konfig-cli
+    (npm: konfig-cli, Node 14+) driven by a konfig.yaml configuration file, plus
+    a web dashboard and GitHub integration. The CLI commands (konfig init,
+    konfig generate, konfig test, konfig publish) call Konfig's hosted generator
+    backend to produce and publish client-library SDKs across
+    TypeScript/JavaScript, Python, Java, C#, PHP, Ruby, Go, Swift, Kotlin,
+    Objective-C, and Dart, along with interactive reference docs, demos, and
+    tutorials. No WebSocket (ws:// or wss://) endpoint is documented anywhere in
+    Konfig's product.
+  accessModel: |
+    CLI + config-driven platform. There is no public base URL, no documented
+    endpoint list, and no published authentication scheme for third-party
+    programmatic access. The generator API that the CLI calls is undocumented
+    and internal. Konfig's product surfaces are therefore captured in apis.yml
+    as endpointsModeled capability areas (SDK Generation, SDK Publishing,
+    Documentation Portal, Demos and Tutorials, OpenAPI Linting), not as real
+    REST endpoints. No OpenAPI or collection artifact was fabricated.
+  companyStatus: |
+    Konfig was a developer-tools startup founded in 2022 in Los Angeles by
+    Anh-Tuan Bui and Dylan Huang. It was SUNSET as of December 2024 and its full
+    codebase was open-sourced under the MIT license at
+    github.com/konfig-dev/konfig. The marketing site (konfigthis.com), the
+    documentation, and the 491 generated SDK repositories at
+    github.com/konfig-sdks remain online and self-hostable, but there is no
+    active commercial offering as of the review date.
+  transports:
+    - protocol: CLI
+      scheme: n/a
+      documented: true
+      note: Primary interface. konfig-cli (npm) reads konfig.yaml; commands init, generate, test, publish.
+    - protocol: REST
+      scheme: https
+      documented: false
+      note: The CLI calls an internal hosted generator backend (konfig-generator-api). Undocumented, not a public API.
+    - protocol: WebSocket
+      scheme: wss
+      documented: false
+      note: No WebSocket endpoint is documented anywhere in Konfig's product or docs.
+  endpointsModeled:
+    - Konfig SDK Generation - generate multi-language client-library SDKs from OpenAPI/Postman (konfig generate)
+    - Konfig SDK Publishing and Updates - test, publish, and auto-republish SDKs to package registries (konfig test / konfig publish)
+    - Konfig Documentation Portal - branded interactive reference docs and markdown pages from the spec
+    - Konfig Demos and Tutorials - interactive runnable demos and markdown tutorials over the generated SDKs
+    - Konfig OpenAPI Linting - configurable linter that validates the OpenAPI spec before generation
+sources:
+  - url: https://konfigthis.com/
+    type: Website
+    note: Product overview - generate SDKs, docs, demos, and tutorials for a REST API.
+  - url: https://konfigthis.com/docs/
+    type: Documentation
+    note: What is Konfig; CLI + konfig.yaml driven. No public REST/WebSocket API documented.
+  - url: https://konfigthis.com/docs/konfig-yaml/
+    type: Documentation
+    note: konfig.yaml generators block; specPath, outputDirectory, per-language SDK config.
+  - url: https://www.npmjs.com/package/konfig-cli
+    type: SDK
+    note: konfig-cli npm package; install -g konfig-cli; commands init/generate/test/publish; Node 14+.
+  - url: https://github.com/konfig-dev/konfig
+    type: SourceCode
+    note: Open-sourced monorepo (MIT). About section states "Sunset as of December 2024".
+  - url: https://github.com/konfig-sdks
+    type: SourceCode
+    note: 491 generated SDK repositories for public APIs (company-language-sdk naming).
+  - url: https://dylanhuang.com/blog/closing-my-startup/
+    type: Blog
+    note: Co-founder Dylan Huang's post announcing the shutdown and open-sourcing the code.
+actions:
+  asyncapiPath: null
+  apisYmlUpdated: true
+  reason: |
+    No WebSocket protocol surface exists. Konfig has no documented public REST
+    API either; it is a CLI/config-driven SDK and docs generator whose CLI calls
+    an internal, undocumented generation backend. The product surfaces are
+    recorded as endpointsModeled capability areas in apis.yml. No AsyncAPI,
+    OpenAPI, or collection artifact was created because there is no documented,
+    server-push, or request/response public API of Konfig's own to model. The
+    company was additionally sunset in December 2024 and open-sourced.

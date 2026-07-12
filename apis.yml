@@ -1,0 +1,147 @@
+aid: konfig-api
+url: https://raw.githubusercontent.com/api-evangelist/konfig-api/refs/heads/main/apis.yml
+name: Konfig
+kind: company
+description: >-
+  Konfig is an SDK and API documentation generator that turns an OpenAPI
+  Specification or Postman Collection into production-ready client libraries,
+  interactive reference docs, demos, and tutorials. It generates and publishes
+  idiomatic SDKs across TypeScript/JavaScript, Python, Java, C#, PHP, Ruby, Go,
+  Swift, Kotlin, Objective-C, and Dart, republishing them automatically whenever
+  the spec changes, and adds spec linting and generated SDK tests to keep client
+  libraries in sync across the API lifecycle. Konfig is driven from a CLI
+  (konfig-cli) and a konfig.yaml config that calls Konfig's hosted generation
+  backend - it is a developer-tooling platform, not a hosted public REST API of
+  its own. Konfig was sunset in December 2024 and its full codebase was
+  open-sourced (MIT) at github.com/konfig-dev/konfig; the marketing site, docs,
+  and 491 generated SDK repositories at github.com/konfig-sdks remain online.
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+tags:
+- SDK Generation
+- Client Library
+- API Documentation
+- Developer Tools
+- API Lifecycle
+- OpenAPI
+- Code Generation
+created: '2026-07-11'
+modified: '2026-07-11'
+specificationVersion: '0.19'
+apis:
+- aid: konfig-api:konfig-sdk-generation
+  name: Konfig SDK Generation
+  tags:
+  - SDK Generation
+  - Client Library
+  - Code Generation
+  - OpenAPI
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://konfigthis.com/docs/getting-started/
+  properties:
+  - url: https://konfigthis.com/docs/
+    type: Documentation
+  - url: https://konfigthis.com/docs/konfig-yaml/
+    type: Documentation
+  - url: https://www.npmjs.com/package/konfig-cli
+    type: SDK
+  description: >-
+    Capability area (endpointsModeled - no documented public REST endpoint).
+    Generates idiomatic client-library SDKs from an OpenAPI Specification or
+    Postman Collection in TypeScript/JavaScript, Python, Java, C#, PHP, Ruby, Go,
+    Swift, Kotlin, Objective-C, and Dart. Driven by the konfig-cli commands
+    (konfig init, konfig generate) reading a konfig.yaml generators block; the
+    CLI calls Konfig's hosted generator backend to produce and version each SDK.
+- aid: konfig-api:konfig-sdk-publishing
+  name: Konfig SDK Publishing and Updates
+  tags:
+  - Client Library
+  - Publishing
+  - API Lifecycle
+  - Package Managers
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://konfigthis.com/docs/tutorials/automate-sdk-updates/
+  properties:
+  - url: https://konfigthis.com/docs/tutorials/automate-sdk-updates/
+    type: Documentation
+  - url: https://github.com/konfig-sdks
+    type: SourceCode
+  description: >-
+    Capability area (endpointsModeled). Tests and publishes generated SDKs to
+    package registries (npm, PyPI, Maven Central/Sonatype, and others) via
+    konfig test and konfig publish, and automatically republishes every SDK when
+    the source spec changes so client libraries stay current across the API
+    lifecycle. Published SDK repositories live under github.com/konfig-sdks.
+- aid: konfig-api:konfig-documentation-portal
+  name: Konfig Documentation Portal
+  tags:
+  - API Documentation
+  - Developer Portal
+  - Reference Docs
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://konfigthis.com/docs/
+  properties:
+  - url: https://konfigthis.com/docs/
+    type: Documentation
+  - url: https://konfigthis.com/blog/openapi-documentation-generators/
+    type: Documentation
+  description: >-
+    Capability area (endpointsModeled). Generates branded, interactive API
+    reference documentation and markdown pages from the same OpenAPI spec,
+    embedding language-specific SDK snippets that stay in sync with the generated
+    client libraries and auto-update whenever the spec is republished.
+- aid: konfig-api:konfig-demos-tutorials
+  name: Konfig Demos and Tutorials
+  tags:
+  - Developer Tools
+  - Demos
+  - Tutorials
+  - Onboarding
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://konfigthis.com/interactive-tutorial/
+  properties:
+  - url: https://konfigthis.com/interactive-tutorial/
+    type: Documentation
+  - url: https://konfigthis.com/docs/
+    type: Documentation
+  description: >-
+    Capability area (endpointsModeled). Builds interactive, runnable demos and
+    markdown-based tutorials on top of the generated SDKs so API consumers can
+    onboard and try live calls from the developer portal.
+- aid: konfig-api:konfig-linting
+  name: Konfig OpenAPI Linting
+  tags:
+  - Linting
+  - API Governance
+  - OpenAPI
+  - Developer Tools
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://konfigthis.com/docs/lint-rules/
+  properties:
+  - url: https://konfigthis.com/docs/lint-rules/
+    type: Documentation
+  description: >-
+    Capability area (endpointsModeled). A configurable linter that inspects an
+    OpenAPI Specification for errors and quality issues before SDK and docs
+    generation, so client libraries are produced from a clean, consistent spec.
+common:
+- type: GitHubOrganization
+  url: https://github.com/konfig-dev
+- type: SourceCode
+  url: https://github.com/konfig-sdks
+- type: LinkedIn
+  url: https://www.linkedin.com/company/konfig
+- type: Website
+  url: https://konfigthis.com
+- type: Documentation
+  url: https://konfigthis.com/docs
+- type: Plans
+  url: plans/konfig-api-plans-pricing.yml
+- type: RateLimits
+  url: rate-limits/konfig-api-rate-limits.yml
+- type: FinOps
+  url: finops/konfig-api-finops.yml
+- url: https://konfigthis.com/blog
+  type: Blog
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com

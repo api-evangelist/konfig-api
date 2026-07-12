@@ -1,0 +1,63 @@
+specification: API Commons Rate Limits
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/RateLimits
+provider: Konfig
+providerId: konfig-api
+created: '2026-07-11'
+modified: '2026-07-11'
+reconciled: false
+tags:
+- SDK Generation
+- Client Library
+- Developer Tools
+- Rate Limiting
+- Quotas
+description: >-
+  Konfig does not expose a documented public API and therefore publishes no
+  per-call rate limits. Interaction happens through the konfig-cli, which calls
+  Konfig's internal, undocumented generation backend on demand (konfig generate,
+  konfig test, konfig publish). Any practical throughput ceiling is a function of
+  how many SDKs a subscription covers and how often the source spec changes,
+  rather than a per-minute request cap. On a self-hosted deployment of the
+  open-source generator, generation throughput is bounded only by your own
+  infrastructure. Package-registry publishing is additionally subject to the
+  limits of the target registries (npm, PyPI, Maven Central, etc.), not Konfig.
+notes: >-
+  No numeric rate limits are documented because there is no public Konfig API.
+  Values here are modeled. Downstream publishing is constrained by third-party
+  registry limits. Verify nothing is enforced by Konfig itself if reconciling.
+sources:
+- https://konfigthis.com/docs/
+- https://www.npmjs.com/package/konfig-cli
+- https://github.com/konfig-dev/konfig
+responseCodes:
+  throttled: 429
+limits:
+- name: Public API Requests
+  scope: account
+  metric: requests
+  limit: not applicable
+  notes: Konfig exposes no documented public REST API, so there is no published per-call rate limit.
+- name: CLI Generation Requests
+  scope: account
+  metric: generations
+  limit: not published
+  notes: konfig generate calls an internal generator backend; no public quota is documented.
+- name: Self-Hosted Generation
+  scope: deployment
+  metric: generations
+  limit: hardware-bound
+  notes: Self-hosting the open-source generator is bounded only by your own infrastructure.
+- name: Package Registry Publishing
+  scope: registry
+  metric: publishes
+  limit: per registry
+  notes: konfig publish is subject to the rate/quota rules of npm, PyPI, Maven Central, and other targets, not Konfig.
+policies:
+- name: On-Demand Generation
+  description: SDKs, docs, demos, and tutorials are generated on demand from the CLI or on spec change, not via a continuously polled API.
+- name: Backoff Strategy
+  description: CLI callers should implement exponential backoff with jitter and honor Retry-After on any 429 responses from downstream registries.
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com
