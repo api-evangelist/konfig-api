@@ -15,7 +15,19 @@ description: >-
   its own. Konfig was sunset in December 2024 and its full codebase was
   open-sourced (MIT) at github.com/konfig-dev/konfig; the marketing site, docs,
   and 491 generated SDK repositories at github.com/konfig-sdks remain online.
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+accessModel:
+  pricing: freemium
+  onboarding: unknown
+  trial: false
+  try_now: false
+  public: false
+  label: Freemium
+  confidence: medium
+  source:
+  - plans
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/konfig-api.png
 tags:
 - SDK Generation
 - Client Library
