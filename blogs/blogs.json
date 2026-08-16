@@ -6,16 +6,18 @@
       "feed_url": "https://konfigthis.com/blog/rss.xml",
       "title": "",
       "saved": 0,
-      "method": "feed"
+      "method": "feed",
+      "error": "fetch_failed: HTTPError"
     },
     {
       "source": "https://konfigthis.com/blog",
       "feed_url": "https://konfigthis.com/blog/rss.xml",
       "title": "",
       "saved": 0,
-      "method": "discovered"
+      "method": "discovered",
+      "error": "fetch_failed: HTTPError"
     }
   ],
   "post_count": 20,
-  "fetched": "2026-08-06T14:08:46Z"
+  "fetched": "2026-08-15T12:11:08Z"
 }
