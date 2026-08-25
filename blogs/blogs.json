@@ -3,21 +3,13 @@
   "feeds": [
     {
       "source": "https://konfigthis.com/blog/rss.xml",
-      "feed_url": "https://konfigthis.com/blog/rss.xml",
-      "title": "",
-      "saved": 0,
-      "method": "feed",
-      "error": "fetch_failed: HTTPError"
+      "error": "HTTPError"
     },
     {
       "source": "https://konfigthis.com/blog",
-      "feed_url": "https://konfigthis.com/blog/rss.xml",
-      "title": "",
-      "saved": 0,
-      "method": "discovered",
-      "error": "fetch_failed: HTTPError"
+      "error": "HTTPError"
     }
   ],
   "post_count": 20,
-  "fetched": "2026-08-15T12:11:08Z"
+  "fetched": "2026-08-22T20:20:02Z"
 }
