@@ -15,6 +15,17 @@ description: >-
   its own. Konfig was sunset in December 2024 and its full codebase was
   open-sourced (MIT) at github.com/konfig-dev/konfig; the marketing site, docs,
   and 491 generated SDK repositories at github.com/konfig-sdks remain online.
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: false
+  label: Hosted service · you call their endpoint
+  confidence: medium
+  source:
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: freemium
   onboarding: unknown
