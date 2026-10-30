@@ -1,4 +1,4 @@
-# Konfig (konfig-api)
+# Konfig
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -64,124 +64,102 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-Konfig is an SDK and API documentation generator that turns an OpenAPI Specification or Postman Collection into production-ready client libraries, interactive reference docs, demos, and tutorials. It generates and publishes idiomatic SDKs across TypeScript/JavaScript, Python, Java, C#, PHP, Ruby, Go, Swift, Kotlin, Objective-C, and Dart, republishing them automatically whenever the spec changes, and layers on OpenAPI linting and generated SDK tests to keep client libraries in sync across the API lifecycle.
+Konfig is an SDK and API documentation generator that turns an OpenAPI Specification or Postman Collection into production-ready client libraries, interactive reference docs, demos, and tutorials. It generates and publishes idiomatic SDKs across TypeScript/JavaScript, Python, Java, C#, PHP, Ruby, Go, Swift, Kotlin, Objective-C, and Dart, republishing them automatically whenever the spec changes, and adds spec linting and generated SDK tests to keep client libraries in sync across the API lifecycle. Konfig is driven from a CLI (konfig-cli) and a konfig.yaml config that calls Konfig's hosted generation backend - it is a developer-tooling platform, not a hosted public REST API of its own. Konfig was sunset in December 2024 and its full codebase was open-sourced (MIT) at github.com/konfig-dev/konfig; the marketing site, docs, and 491 generated SDK repositories at github.com/konfig-sdks remain online.
 
-**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/konfig-api/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/konfig-api/refs/heads/main/apis.yml)
+**Areas:** SDK Generation · Client Library · API Documentation · Developer Tools · API Lifecycle · OpenAPI · Code Generation
 
-## Access Model (Read This First)
+## Konfig on APIs.io
 
-Konfig is a **developer-tooling platform, not a hosted public REST API**. There is no documented public base URL, endpoint list, or authentication scheme for third-party programmatic access. Publishers use Konfig through:
+Everything profiled for Konfig is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/konfig-api/](https://apis.io/providers/konfig-api/)** — or go straight to one of the APIs or properties below.
 
-- **`konfig-cli`** (npm: `konfig-cli`, Node 14+) — commands `konfig init`, `konfig generate`, `konfig test`, `konfig publish`.
-- **`konfig.yaml`** — a declarative config with a `generators` block (spec path, output directories, per-language SDK settings).
-- A **web dashboard / interactive tutorial** and **GitHub integration**.
+### APIs (5)
 
-`konfig generate` calls Konfig's hosted generator backend, but that backend is internal and undocumented — it is not a versioned public API. Because of this, the product surfaces in `apis.yml` are recorded as **`endpointsModeled` capability areas** (SDK Generation, SDK Publishing, Documentation Portal, Demos & Tutorials, OpenAPI Linting) rather than real REST endpoints. No OpenAPI or collection artifact was fabricated.
+- [Konfig SDK Generation](https://apis.io/apis/konfig-api/konfig-sdk-generation/) — Capability area (endpointsModeled - no documented public REST endpoint). Generates idiomatic client-library SDKs from an OpenAPI Specification or Postman…
+- [Konfig SDK Publishing and Updates](https://apis.io/apis/konfig-api/konfig-sdk-publishing/) — Capability area (endpointsModeled). Tests and publishes generated SDKs to package registries (npm, PyPI, Maven Central/Sonatype, and others) via konfig test…
+- [Konfig Documentation Portal](https://apis.io/apis/konfig-api/konfig-documentation-portal/) — Capability area (endpointsModeled). Generates branded, interactive API reference documentation and markdown pages from the same OpenAPI spec, embedding…
+- [Konfig Demos and Tutorials](https://apis.io/apis/konfig-api/konfig-demos-tutorials/) — Capability area (endpointsModeled). Builds interactive, runnable demos and markdown-based tutorials on top of the generated SDKs so API consumers can…
+- [Konfig OpenAPI Linting](https://apis.io/apis/konfig-api/konfig-linting/) — Capability area (endpointsModeled). A configurable linter that inspects an OpenAPI Specification for errors and quality issues before SDK and docs…
 
-## Company Status
+### Published properties
 
-Konfig was a developer-tools startup founded in 2022 in Los Angeles by Anh-Tuan Bui and Dylan Huang. It was **sunset as of December 2024**, and its full codebase was **open-sourced under the MIT license** at [github.com/konfig-dev/konfig](https://github.com/konfig-dev/konfig). The marketing site ([konfigthis.com](https://konfigthis.com)), the documentation, and the **491 generated SDK repositories** at [github.com/konfig-sdks](https://github.com/konfig-sdks) remain online and self-hostable. There is no active commercial offering as of this writing — the live path is self-hosting the open-source generator.
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-## Tags
+#### Plans and pricing (1)
 
-- SDK Generation
-- Client Library
-- API Documentation
-- Developer Tools
-- API Lifecycle
-- OpenAPI
-- Code Generation
+Published plans, tiers and prices.
 
-## Timestamps
+- [Konfig Api Plans Pricing](https://apis.io/plans/konfig-api/konfig-api-plans-pricing/)
 
-- **Created:** 2026-07-11
-- **Modified:** 2026-07-11
+#### Rate limits (1)
 
-## APIs (Capability Areas — endpointsModeled)
+Published request limits.
 
-### Konfig SDK Generation
+- [Konfig Api Rate Limits](https://apis.io/rate-limits/konfig-api/konfig-api-rate-limits/)
 
-Generates idiomatic client-library SDKs from an OpenAPI Specification or Postman Collection in TypeScript/JavaScript, Python, Java, C#, PHP, Ruby, Go, Swift, Kotlin, Objective-C, and Dart. Driven by `konfig init` / `konfig generate` reading the `konfig.yaml` generators block.
+#### FinOps (1)
 
-- **Human URL:** [https://konfigthis.com/docs/getting-started/](https://konfigthis.com/docs/getting-started/)
+What the API costs to run, by operation.
 
-#### Tags
+- [Konfig Api Finops](https://apis.io/finops/konfig-api/konfig-api-finops/)
 
-- SDK Generation
-- Client Library
-- Code Generation
-- OpenAPI
+## Where to find this API
 
-#### Properties
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
 
-- [Documentation](https://konfigthis.com/docs/)
-- [konfig.yaml Reference](https://konfigthis.com/docs/konfig-yaml/)
-- [konfig-cli (npm)](https://www.npmjs.com/package/konfig-cli)
-
-### Konfig SDK Publishing and Updates
-
-Tests and publishes generated SDKs to package registries (npm, PyPI, Maven Central/Sonatype, and others) via `konfig test` and `konfig publish`, and automatically republishes every SDK when the source spec changes. Published SDK repositories live under [github.com/konfig-sdks](https://github.com/konfig-sdks).
-
-- **Human URL:** [https://konfigthis.com/docs/tutorials/automate-sdk-updates/](https://konfigthis.com/docs/tutorials/automate-sdk-updates/)
-
-#### Tags
-
-- Client Library
-- Publishing
-- API Lifecycle
-- Package Managers
-
-### Konfig Documentation Portal
-
-Generates branded, interactive API reference documentation and markdown pages from the same OpenAPI spec, embedding language-specific SDK snippets that auto-update whenever the spec is republished.
-
-- **Human URL:** [https://konfigthis.com/docs/](https://konfigthis.com/docs/)
-
-#### Tags
-
-- API Documentation
-- Developer Portal
-- Reference Docs
-
-### Konfig Demos and Tutorials
-
-Builds interactive, runnable demos and markdown-based tutorials on top of the generated SDKs so API consumers can onboard and try live calls from the developer portal.
-
-- **Human URL:** [https://konfigthis.com/interactive-tutorial/](https://konfigthis.com/interactive-tutorial/)
-
-#### Tags
-
-- Developer Tools
-- Demos
-- Tutorials
-- Onboarding
-
-### Konfig OpenAPI Linting
-
-A configurable linter that inspects an OpenAPI Specification for errors and quality issues before SDK and docs generation, so client libraries are produced from a clean, consistent spec.
-
-- **Human URL:** [https://konfigthis.com/docs/lint-rules/](https://konfigthis.com/docs/lint-rules/)
-
-#### Tags
-
-- Linting
-- API Governance
-- OpenAPI
-- Developer Tools
-
-## Common Properties
-
-- [GitHub Organization](https://github.com/konfig-dev)
-- [Generated SDKs (github.com/konfig-sdks)](https://github.com/konfig-sdks)
-- [LinkedIn](https://www.linkedin.com/company/konfig)
 - [Website](https://konfigthis.com)
 - [Documentation](https://konfigthis.com/docs)
-- [Plans](plans/konfig-api-plans-pricing.yml)
-- [Rate Limits](rate-limits/konfig-api-rate-limits.yml)
-- [Fin Ops](finops/konfig-api-finops.yml)
 - [Blog](https://konfigthis.com/blog)
+- [GitHub](https://github.com/konfig-dev)
 
-## Maintainers
+## API Evangelist rating
 
-**FN:** Kin Lane
-**Email:** kin@apievangelist.com
+**Kin Score 12.1** — emerging · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 62.5 |
+| Contract quality | 6.5 |
+| Contract governance | 0.0 |
+| Operational transparency | 10.5 |
+| Developer ergonomics | 20.2 |
+| Access clarity | 7.9 |
+
+**Agent readiness 1.9** — human-only
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | — |
+| Agentic Access | — |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | — |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | documented (partial credit) |
+| Rate Limit Signal | derived (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 0.0** — Education & Research
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/konfig-api/](https://apis.io/providers/konfig-api/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Konfig: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/konfig-api/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
